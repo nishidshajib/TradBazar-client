@@ -15,7 +15,7 @@ class AuthController extends Controller
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:8|confirmed',
-            'role' => 'required|in:seller,buyer',
+            'role' => 'required|in:seller,buyer,admin',
         ]);
 
         $user = User::create([
@@ -57,3 +57,5 @@ class AuthController extends Controller
         return response()->json(['message' => 'Logged out']);
     }
 }
+
+
